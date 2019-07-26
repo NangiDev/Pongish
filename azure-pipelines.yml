@@ -13,8 +13,8 @@ steps:
 - task: Gradle@2
   inputs:
     gradleWrapperFile: 'gradlew'
-    workingDirectory: 'pongish-core/assets'
-    tasks: 'build'
+    workingDirectory: ''
+    tasks: 'publish'
     publishJUnitResults: false
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.6'
