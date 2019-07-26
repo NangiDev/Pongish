@@ -1,3 +1,5 @@
+apply plugin: 'maven-publish'
+
 buildscript {
     repositories {
         mavenCentral()
@@ -22,7 +24,6 @@ publishing {
 allprojects {
     apply plugin: "eclipse"
     apply plugin: "idea"
-    apply plugin: 'maven-publish'
 
     version = '1.0'
     ext {
