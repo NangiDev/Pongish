@@ -7,6 +7,18 @@ buildscript {
     }
 }
 
+publishing {
+    repositories {
+		maven {
+		    url 'https://pkgs.dev.azure.com/jsettrbrg/_packaging/jsettrbrg/maven/v1'
+		    credentials {
+		        username "AZURE_ARTIFACTS"
+		        password System.getenv("AZURE_ARTIFACTS_ENV_ACCESS_TOKEN") ?: "${azureArtifactsGradleAccessToken}"
+		    }
+		}
+	}
+}
+
 allprojects {
     apply plugin: "eclipse"
     apply plugin: "idea"
