@@ -17,5 +17,5 @@ steps:
     tasks: 'publish'
     publishJUnitResults: false
     javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.6'
+    jdkVersionOption: '1.8'
     sonarQubeRunAnalysis: false
