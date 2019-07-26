@@ -9,6 +9,9 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+variables:
+  azureArtifactsGradleAccessToken: 5iouxovql5hpc4v52727yal2m2khrltel4ybw7amcc77ugrwxq5q
+
 steps:
 - task: Gradle@2
   inputs:
