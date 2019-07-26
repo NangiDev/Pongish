@@ -12,7 +12,7 @@ pool:
 steps:
 - task: Gradle@2
   inputs:
-    workingDirectory: './pongish-desktop/assets}'
+    workingDirectory: '$(Build.SourcesDirectory)/pongish-desktop/assets}'
     gradleWrapperFile: 'gradlew'
     gradleOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
