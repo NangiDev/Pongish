@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.Application;
 import se.settrbrg.pongish.screens.MainMenuScreen;
 
 public class Main extends Game {
@@ -19,6 +20,10 @@ public class Main extends Game {
 	public void create () {
 		Settings.load();
 		Assets.load();
+
+		if (Gdx.app.getType() == Application.ApplicationType.WebGL) {
+			Settings.musicEnabled = false;
+		}
 
 		camera = new OrthographicCamera(Assets.screenSize.x, Assets.screenSize.y);
 		camera.position.set(Assets.screenSize.x*0.5f, Assets.screenSize.y*0.5f, 0f);
@@ -37,7 +42,11 @@ public class Main extends Game {
 		shapeRenderer.setProjectionMatrix(camera.combined);
 		camera.update();
 		super.render();
-		drawInfoText();
+
+		if (Gdx.app.getType() != Application.ApplicationType.WebGL) {
+			drawInfoText();
+		}
+
 		if (Settings.musicEnabled) {
 			Assets.music.play();
 		} else {
